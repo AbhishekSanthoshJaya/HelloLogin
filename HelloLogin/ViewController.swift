@@ -10,8 +10,10 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet weak var lblFirstText: UILabel!
-    @IBOutlet weak var lblWelcome: UILabel!
+    
+    @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtPassWord: UITextField!
+    @IBOutlet weak var txtAuth: UITextField!
     
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
@@ -30,13 +32,22 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        lblWelcome.text = "First iOS app"
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func btnDonateTap(_ sender: UIButton)
     {
-        lblWelcome.text = lblFirstText.text
+        if (txtUsername.text == "Abhishek" && txtPassWord.text == "juice"){
+            print("Login Successful")
+            txtAuth.text = "LOGIN SUCCESSFUL"
+            txtAuth.isHidden = false
+            
+        }
+        else{
+            print("Incorrect username/password")
+            txtAuth.text = "Incorrect username/password"
+            txtAuth.isHidden = false
+        }
     }
     
 }
